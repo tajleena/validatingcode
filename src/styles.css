@@ -1,0 +1,13 @@
+Add application styles & imports to this file!
+input.ng-invalid{
+   border-color: #dc3545 ;
+    color:white;
+  }
+  select.ng-invalid{
+   border-color: #dc3545;
+    color:white;
+  }
+  
+  .fade.show {
+    opacity: 1;
+}

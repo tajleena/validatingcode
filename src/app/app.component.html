@@ -1,0 +1,55 @@
+
+<!DOCTYPE html>
+<html lang="en-US">
+    <head>
+        <title>Registeration</title>
+    </head>
+    <body>
+        <h1 align="center">Create a Rediffmail account</h1>
+        <div class="container">
+            <form [formGroup]="studentFormGroup" >
+              
+               
+                 <div [formGroup]="studentFormGroup.controls.address1">
+                    
+                    <label for="exampleInputEmail1">Address</label>
+                    <strong>:</strong><br />
+                    Street<input type="text" class="form-control" formControlName="street" > 
+                    <div class="form-text text-danger" *ngIf="studentFormGroup.controls.address1.controls.street.invalid &&studentFormGroup.controls.address1.controls.street.touched">This field is require...</div><br />
+                    area<input type="text" class="form-control" formControlName="area"> 
+                    <!-- <div class="form-text text-danger" *ngIf="studentFormGroup.controls.area.invalid &&studentFormGroup.controls.area.touched">This field is require...</div><br /> -->
+                    postal code<input type="text" class="form-control" formControlName="postalCode">
+                     <!-- <div class="form-text text-danger" *ngIf="studentFormGroup.controls.postalCode.invalid &&studentFormGroup.controls.postalCode.touched">This field is require...</div> -->
+                             
+                </div>
+                <div class="form-group">
+                <label>state</label>
+                 <input type="text" class="form-control" formControlName="state" >
+                           
+                </div>
+                <div class="form-group">
+                <label>country</label>
+                 <input type="text" class="form-control" formControlName="country" >
+                 <div class="form-text text-danger" *ngIf="studentFormGroup.controls.country.invalid &&studentFormGroup.controls.country.touched">This field is require...</div>
+                           
+                </div>
+                <div class="form-group">
+                   <button  (click)="addHobby()" class="button1" >Add hobby</button>
+                   </div>
+                      <div formArrayName="hobbies" *ngFor="let hobby of studentFormGroup.controls.hobbies.value;let i=index">
+                          <div [formGroupName]="i">                     
+                        <input class="form-control" formControlName="hobbyName" placeholder="add hobby">                    
+                          </div>                   
+                      </div>
+                
+                  
+                
+                 
+                <button (click)="submit()" class="button1">Create my account>></button>
+            
+          
+            
+         </form>
+     </div>
+  </body>
+</html>
